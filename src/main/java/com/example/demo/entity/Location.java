@@ -4,6 +4,7 @@ package com.example.demo.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Builder
@@ -14,8 +15,8 @@ import java.util.Set;
 @Entity
 public class Location {
     @Id
-    @Column()
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
@@ -33,8 +34,10 @@ public class Location {
             orphanRemoval = true,
             cascade = CascadeType.ALL
     )
-    private Set<User> users;
+    private Set<User> users ;
     public void addUser(User user){
+        if(this.users == null)
+            this.users = new HashSet<>();
         this.users.add(user);
     }
 }

@@ -5,8 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
 @Builder
 @Data
 @AllArgsConstructor
@@ -15,5 +13,6 @@ public class UserDto {
     private Long id;
     private String pseudo;
     private String telephone;
+    private String password;
     private String address;
 }

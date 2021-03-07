@@ -23,6 +23,7 @@ public class AdapterUser {
                 .id(userDto.getId())
                 .pseudo(userDto.getPseudo())
                 .telephone(userDto.getTelephone())
+                .password(userDto.getPassword())
                 .build();
     }
 }

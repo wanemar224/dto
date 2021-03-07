@@ -3,7 +3,6 @@ package com.example.demo.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Builder
 @Data
@@ -13,8 +12,8 @@ import java.util.Set;
 @Entity(name = "user_table")
 public class User {
     @Id
-    @Column()
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private Long id;
 
@@ -23,15 +22,7 @@ public class User {
     @Column
     private String telephone;
     @Column
-    private String password;
-
-    @OneToMany(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER
-    )
-    private Set<Article> article;
+    private String password ;
 
     @ManyToOne
     @JoinColumn(nullable = true, name = "location_id")
